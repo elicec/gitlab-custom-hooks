@@ -32,6 +32,7 @@ def verifyCommitMsgs(msgs):
     pat = re.compile(r'^\[.{0,16}\]\[.*\]\[.*\]')#[test][test][test]
     for msg in msgs:
         msg = msg.encode('utf-8')
+        print('start check: '+msg)
         if isAutoMsg(msg):# Merge or Revert msg
             continue
         match = pat.match(msg)
@@ -52,7 +53,7 @@ def main():
     if isPushTag(branch):
         print("is a tag")
         sys.exit(0)#success exit
-    com_msg = getCommitMsg(old, new).split()
+    com_msg = getCommitMsg(old, new).split('\n')
     result = verifyCommitMsgs(com_msg)
     if result:
         print(CGREEN + 'Verify Commit Message success' + CEND)
