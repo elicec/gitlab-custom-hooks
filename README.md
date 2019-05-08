@@ -2,6 +2,10 @@
 
 gitlab custom hooks writted in python
 
+put *pre-receive* in to dir bleow.and change the permission to git
+
+/var/opt/gitlab/git-data/repositories/root/testapp.git/custom_hooks
+
 ```python
 
 
